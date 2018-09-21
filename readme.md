@@ -4,23 +4,29 @@
 
 ## 使用
 
-1. 配置 `register.php` 中的数据库和Redis链接
+1. 安装扩展
 
-2. 导入sql文件 `mq_user.sql`
+```
+vagrant@homestead:~/code/php-resque-mq$ composer install
+```
 
-3. 执行主业务并将Job插入队列
+2. 配置 `register.php` 中的数据库和Redis链接
+
+3. 导入sql文件 `mq_user.sql`
+
+4. 执行主业务并将Job插入队列
 
 ```
 vagrant@homestead:~/code/php-resque-mq$ php register.php [姓名] [手机号]
 ```
 
-4. 查看任务状态
+5. 查看任务状态
 
 ```
 vagrant@homestead:~/code/php-resque-mq$ php status 26bf81f1943d1a940ffd68a287a7d16c
 ```
 
-5 启动Worker
+6 启动Worker
 
 ```
 QUEUE=sms LOGLEVEL=2 php worker.php
